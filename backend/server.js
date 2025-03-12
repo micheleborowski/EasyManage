@@ -1,10 +1,12 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
+import cors from "cors";
 
 const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173" }));
 
 app.post("/orders", async (request, response) => {
   const { client, product, date } = request.body;
@@ -12,8 +14,8 @@ app.post("/orders", async (request, response) => {
   try {
     const newClient = await prisma.client.create({
       data: {
-        name: client[0].name,
-        phone: client[0].phone,
+        name: client.name, // ✅ Correto
+        phone: client.phone,
       },
     });
 

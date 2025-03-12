@@ -1,20 +1,30 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-display:flex;
-flex-direction: column;
-justify-content: flex-start
-width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 `;
 
-export const Grid = styled.div`
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+export const Header = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
 `;
 
-export const Row = styled.div`
-    display: flex;
-    flex-direction: column;
+export const GridRow = styled.div<{ isTitle?: boolean }>`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  background-color: ${({ isTitle }) => (isTitle ? "#ddd" : "white")};
+  font-weight: ${({ isTitle }) => (isTitle ? "bold" : "normal")};
+  border-bottom: 1px solid #ccc;
+`;
+
+export const ColumnTitle = styled.div`
+  text-align: center;
 `;

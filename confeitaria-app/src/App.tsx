@@ -4,9 +4,7 @@ import { Order } from './pages/Order/Order'
 function App() {
 
   return (
-    <>
-      <Order />
-    </>
+    <Order />
   )
 }
 

@@ -13,6 +13,9 @@ export const Header = styled.div`
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const GridRow = styled.div<{ isTitle?: boolean }>`
